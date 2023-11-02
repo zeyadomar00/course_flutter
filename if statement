@@ -1,0 +1,16 @@
+void main() {
+  int iphone = 50000;
+  int s20 = 40000;
+  int s10 = 10000;
+  int  me = 10000;
+
+  if (iphone < prices) {
+    print("  ok");
+  } else if (prices == s10) {
+    print(" ook");
+  } else if (prices < s20) {
+    print(" opok");
+  } else {
+    print(" not ");
+  }
+}
