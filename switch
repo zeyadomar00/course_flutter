@@ -1,0 +1,25 @@
+void main() {
+  int prices = 10;
+  switch (prices) {
+    case 1000:
+      {
+        print("1000");
+      }
+      break;
+    case 2000:
+      {
+        print(" 2000 ");
+      }
+      break;
+    case 3000:
+      {
+        print("3000");
+      }
+      break;
+    default:
+      {
+        print(prices);
+      }
+      break;
+  }
+}
