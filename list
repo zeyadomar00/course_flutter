@@ -1,0 +1,10 @@
+void main() {
+  List name = ["ahmed", "mahmoud", "zeyad"];
+  name[1] = "gg";
+  name[2] = "dd";
+  name.add("mohmed");
+
+  for (int x = 0; x < name.length; x++) {
+    print(name[x]);
+  }
+}
