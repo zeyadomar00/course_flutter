@@ -1,0 +1,7 @@
+void main() {
+  Map info = {"name": "zeyad ", "age": 12, "mmm": "dd"};
+
+  info.addAll({"user": "sdd", "dsd": "dsd"});
+
+  print(info.entries);
+}
