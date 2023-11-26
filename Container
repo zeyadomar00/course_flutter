@@ -1,0 +1,17 @@
+ Container(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.all(Radius.circular(2000)),
+                border: Border.all(color: Colors.black, width: 10),
+              ),
+              width: 500,
+              height: 400,
+              alignment: Alignment.center,
+              margin: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(30),
+              child: const Text("data",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 50.2,
+                    fontWeight: FontWeight.bold,
+                  )))),
