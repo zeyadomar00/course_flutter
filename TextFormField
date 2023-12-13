@@ -1,0 +1,63 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  MyApp({super.key});
+
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  GlobalKey<FormState> fromstate = GlobalKey();
+  String? user_name;
+  String? phone;
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        home: Scaffold(
+            appBar: AppBar(title: Text("zeyad")),
+            body: Container(
+                padding: EdgeInsets.all(20),
+                child: Form(
+                  key: fromstate,
+                  child: Column(children: [
+                    TextFormField(
+                      obscureText: true,
+                      autovalidateMode: AutovalidateMode.always,
+                      onSaved: (val) {
+                        user_name = val;
+                      },
+                      validator: (val) {
+                        if (val!.isEmpty) {
+                          return ("not valid");
+                        }
+                        if (val.length > 12) {
+                          return "less more 12 ";
+                        }
+                        if (val.length < 9) {
+                          return "more than 9";
+                        }
+                        ;
+                      },
+                      decoration: InputDecoration(
+                        hintText: user_name,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                    MaterialButton(
+                      color: Colors.amber,
+                      onPressed: () {
+                        if (fromstate.currentState!.validate()) {
+                          fromstate.currentState!.save();
+                          print(user_name);
+                        }
+                      },
+                      child: Text("vaild"),
+                    )
+                  ]),
+                ))));
+  }
+}
