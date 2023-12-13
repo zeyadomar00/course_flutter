@@ -1,0 +1,139 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  MyApp({super.key});
+
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  GlobalKey<FormState> fromstate = GlobalKey();
+  String? user_name;
+  String? password;
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        home: Scaffold(
+            appBar: AppBar(title: Text("LoginPage")),
+            body: Container(
+                height: 600,
+                width: 600,
+                padding: EdgeInsets.all(20),
+                child: Form(
+                  key: fromstate,
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          "images/download.png",
+                          width: 50,
+                          height: 50,
+                        ),
+                        SizedBox(height: 16),
+                        TextFormField(
+                          onSaved: (val) {
+                            user_name = val;
+                          },
+                          validator: (val) {
+                            if (val!.isEmpty) {
+                              return ("not valid");
+                            }
+                            if (val.length > 12) {
+                              return "less more 12 ";
+                            }
+                            if (val.length < 9) {
+                              return "more than 9";
+                            }
+                            ;
+                          },
+                          decoration: InputDecoration(
+                            hintText: "user_name",
+                            labelText: "user_name",
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        TextFormField(
+                          obscureText: true,
+                          onSaved: (val) {
+                            password = val;
+                          },
+                          validator: (val) {
+                            if (val!.isEmpty) {
+                              return ("not valid");
+                            }
+                            if (val.length > 12) {
+                              return "less more 12 ";
+                            }
+                            if (val.length < 9) {
+                              return "more than 9";
+                            }
+                            ;
+                          },
+                          decoration: InputDecoration(
+                            hintText: "password",
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Text("Forgot your password?"),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        MaterialButton(
+                          minWidth: 200,
+                          color: Colors.red,
+                          onPressed: () {
+                            if (fromstate.currentState!.validate()) {
+                              fromstate.currentState!.save();
+                              print(user_name);
+                            }
+                          },
+                          child: Text("Login"),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "OR",
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        MaterialButton(
+                          minWidth: 200,
+                          color: Colors.blue,
+                          onPressed: () {
+                            if (fromstate.currentState!.validate()) {
+                              fromstate.currentState!.save();
+                              print(user_name);
+                            }
+                          },
+                          child: Text("continue with facebook"),
+                        ),
+                        SizedBox(
+                          height: 1,
+                        ),
+                        MaterialButton(
+                          minWidth: 200,
+                          color: Colors.white,
+                          onPressed: () {
+                            if (fromstate.currentState!.validate()) {
+                              fromstate.currentState!.save();
+                              print(user_name);
+                            }
+                          },
+                          child: Text(
+                            "continue with google",
+                          ),
+                        ),
+                      ]),
+                ))));
+  }
+}
