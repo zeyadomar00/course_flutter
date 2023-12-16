@@ -1,0 +1,92 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  GlobalKey<ScaffoldState> scaffoldkey = GlobalKey();
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        key: scaffoldkey,
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text("sss"),
+          actions: [
+            IconButton(
+                onPressed: () {}, icon: Icon(Icons.notifications_active)),
+            IconButton(
+                onPressed: () {}, icon: Icon(Icons.notifications_active)),
+          ],
+        ),
+        drawer: Drawer(
+          backgroundColor: Colors.grey,
+          child: ListView(
+            children: [
+              Row(
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(20),
+                    height: 90,
+                    width: 90,
+                    child: ClipRRect(
+                        child: Icon(Icons.home),
+                        borderRadius: BorderRadius.circular(50)),
+                  ),
+                  Expanded(
+                      child: ListTile(
+                    title: Text("homepage"),
+                  ))
+                ],
+              ),
+              Column(
+                children: [
+                  ListTile(
+                    title: Text("mobile"),
+                    leading: Icon(Icons.mobile_friendly),
+                  ),
+                  ListTile(
+                    title: Text("alarm"),
+                    leading: Icon(Icons.alarm),
+                  ),
+                  ListTile(
+                    title: Text("facebook"),
+                    leading: Icon(Icons.facebook),
+                  ),
+                  ListTile(
+                    title: Text("add"),
+                    leading: Icon(Icons.add),
+                  ),
+                  ListTile(
+                    title: Text("email "),
+                    leading: Icon(Icons.email),
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
+        body: Center(
+          child: Container(
+            child: MaterialButton(
+              onPressed: () {
+                scaffoldkey.currentState!.openDrawer();
+              },
+              child: Text("open drawer"),
+              color: Colors.redAccent,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
