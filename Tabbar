@@ -1,0 +1,62 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  GlobalKey<ScaffoldState> scaffoldkey = GlobalKey();
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        home: DefaultTabController(
+      initialIndex: 1,
+      length: 3,
+      child: Scaffold(
+        key: scaffoldkey,
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text("Tech"),
+          bottom: TabBar(
+              indicatorColor: Colors.red,
+              indicatorWeight: 10,
+              labelColor: Colors.amberAccent,
+              labelStyle: TextStyle(fontSize: 20),
+              unselectedLabelColor: Colors.black,
+              unselectedLabelStyle: TextStyle(fontSize: 10),
+              tabs: [
+                Tab(
+                  iconMargin: EdgeInsets.all(5),
+                  icon: Icon(Icons.laptop),
+                  text: "laptop",
+                ),
+                Tab(
+                  icon: Icon(Icons.mobile_screen_share_sharp),
+                  text: "mobile",
+                ),
+                Tab(
+                  icon: Icon(Icons.computer),
+                  text: "pc",
+                )
+              ]),
+        ),
+        body: Center(
+          child: Container(
+              padding: EdgeInsets.all(30),
+              child: TabBarView(children: [
+                Text("pc"),
+                Text("mobile"),
+                Text("labtop"),
+              ])),
+        ),
+      ),
+    ));
+  }
+}
